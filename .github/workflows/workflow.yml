@@ -22,6 +22,27 @@ jobs:
           fetch-depth: 3
 
       # Runs a single command using the runners shell
+<<<<<<< HEAD
       - name: revert script
         run: ./.github/workflows/script.sh
         shell: bash
+=======
+      - name: Run a one-line script
+        run: |
+           echo Hello, world!
+           git log
+           echo "git reset"
+           git reset --hard HEAD~1
+           git log
+           git push origin master
+           
+ #    git reset --heard HEAD^
+   #  git push origin master
+           
+
+      # Runs a set of commands using the runners shell
+#      - name: Run a multi-line script
+ #       run: |
+  #        echo Add other actions to build,
+   #       echo test, and deploy your project.
+>>>>>>> 169cff7375ff7e88a84dd4995873243d318af666
