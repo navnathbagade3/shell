@@ -25,8 +25,8 @@ jobs:
            echo Hello, world!
            git log
            
-           git reset --heard HEAD^
-           git push origin master
+ #    git reset --heard HEAD^
+   #  git push origin master
            
 
       # Runs a set of commands using the runners shell
