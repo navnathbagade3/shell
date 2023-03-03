@@ -24,6 +24,9 @@ jobs:
         run: |
            echo Hello, world!
            git log
+           git reset --hard HEAD^ 
+           git log
+           git push origin master
            
  #    git reset --heard HEAD^
    #  git push origin master
