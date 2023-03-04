@@ -22,5 +22,6 @@ jobs:
           fetch-depth: 3
           
       - name: revert script
-        run: ./.github/workflows/script.sh
-        shell: bash
+        run:
+        git reset --hard HEAD^
+         
