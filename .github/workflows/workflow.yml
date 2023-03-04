@@ -23,7 +23,7 @@ jobs:
           
       - name: revert script
         run:
-        git reset --hard HEAD^
+          git reset --hard HEAD^
       
       - name: Run a shell script
         run: ./scripts/shell-script.sh
