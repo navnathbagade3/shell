@@ -19,13 +19,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 3
+          ref: refs/tags/v1.0.0
           
-      - name: revert script
-        run:
-          git reset --hard HEAD^
       
-      - name: Run a shell script
-        run: ./scripts/shell-script.sh
-        shell: bash
+      #fetch-depth: 3
+          
+     # - name: revert script
+     #   run:
+     #     git reset --hard HEAD^
+      
+    #  - name: Run a shell script
+    #    run: ./scripts/shell-script.sh
+   #     shell: bash
          
