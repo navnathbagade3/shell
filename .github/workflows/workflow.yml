@@ -19,7 +19,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          ref: refs/tags/v1.0.0
+          ref: refs/tags/v3.0.0
           
       
       #fetch-depth: 3
