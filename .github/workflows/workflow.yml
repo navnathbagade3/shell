@@ -17,15 +17,22 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v3
-      #  with:
-      #    ref: refs/tags/v3.0.0
+      - uses: actions/checkout@v3
+
+      - name: git fetch tags
+        run:
+          git fetch --tags
+          git checkout tags/$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
           
-      - name: Get tag name
-        id: get_tag_name
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: running shell script
+        run: ./scripts/shell-script.sh
+        shell: bash
+          
+#      - name: Get tag name
+ #       id: get_tag_name
+  #      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           ref: ${{ steps.get_tag_name.outputs.VERSION }}
           
