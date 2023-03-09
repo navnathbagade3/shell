@@ -31,7 +31,7 @@ jobs:
           tag: ${{ github.event.inputs.version }}
 
       - run: |
-          if [[ ${{ steps.checkTag.outputs.exists }} == "false" ]]; then
+          if [[ ${{ steps.checkTag.outputs.exists }} == false ]]; then
             echo ${{ github.event.inputs.version }} is not valid tag
             exit 1
           fi
