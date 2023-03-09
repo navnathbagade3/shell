@@ -25,6 +25,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: mukunku/tag-exists-action@v1.2.0
+        id: checkTag
+        with: 
+          tag: ${{ github.event.inputs.version }}
+
+      - run: echo ${{ steps.checkTag.outputs.exists }}
+
       - name: git fetch tags
         run: |
           echo "::set-output version = ${{ github.event.inputs.version }}"
