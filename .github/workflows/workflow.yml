@@ -6,7 +6,11 @@ name: manual trigger
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+    inputs:
+      version:
+        description: 'Provide the rollback tag'
+        required: true
+        default: ""
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -22,8 +26,9 @@ jobs:
           fetch-depth: 0
 
       - name: git fetch tags
-        run:
-          git checkout tags/$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
+        run: |
+          echo "::set-output version = ${{ github.event.inputs.version }}"
+          git checkout tags/${{ github.event.inputs.version }}"
           
       - name: running shell script
         run: ./scripts/shell-script.sh
@@ -33,9 +38,9 @@ jobs:
  #       id: get_tag_name
   #      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.get_tag_name.outputs.VERSION }}
+   #   - uses: actions/checkout@v3
+    #    with:
+     #     ref: ${{ steps.get_tag_name.outputs.VERSION }}
           
       
       #fetch-depth: 3
