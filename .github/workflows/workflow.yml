@@ -22,12 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: git fetch tags
-        run: |
-          echo "before git fetch tag"
-          git tag
-          git fetch --tags
-          echo "after git fetch tag"
-          git tag
+        run:
           git checkout tags/$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
           
       - name: running shell script
