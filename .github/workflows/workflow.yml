@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: git fetch tags
-        run:
+        run: |
           echo "before git fetch tag"
           git tag
           git fetch --tags
