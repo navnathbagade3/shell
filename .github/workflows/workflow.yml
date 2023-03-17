@@ -44,6 +44,13 @@ jobs:
       - name: running shell script
         run: ./scripts/shell-script.sh
         shell: bash
+      
+      - name: release artifact
+        uses: "marvinpinto/action-automatic-releases@v1.2.1"
+        with:
+#          repo_token: "${{ secrets.GETHUB_PERSONAL_ACCESS_TOKEN }}"
+          prerelease: false
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           
 #      - name: Get tag name
  #       id: get_tag_name
