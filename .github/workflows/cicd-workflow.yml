@@ -19,8 +19,33 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      # Runs a single command using the runners shell
-      - name: Run a shell script
+      - uses: mukunku/tag-exists-action@v1.2.0
+        id: checkTag
+        with: 
+          tag: ${{ github.event.inputs.version }}
+
+      - run: |
+          if [[ ${{ steps.checkTag.outputs.exists }} == false ]]; then
+            echo ${{ github.event.inputs.version }} is not valid tag
+            exit 1
+          fi
+          
+      - name: git fetch tags
+        run: |
+          echo "::set-output version = ${{ github.event.inputs.version }}"
+          git checkout tags/${{ github.event.inputs.version }}
+          
+      - name: running shell script
         run: ./scripts/shell-script.sh
         shell: bash
+      
+      - name: release artifact
+        uses: "marvinpinto/action-automatic-releases@v1.2.1"
+        with:
+#          repo_token: "${{ secrets.GETHUB_PERSONAL_ACCESS_TOKEN }}"
+          prerelease: false
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: latest
