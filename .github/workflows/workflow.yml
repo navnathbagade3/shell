@@ -51,6 +51,7 @@ jobs:
 #          repo_token: "${{ secrets.GETHUB_PERSONAL_ACCESS_TOKEN }}"
           prerelease: false
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: ${{ github.event.inputs.version }}
           
 #      - name: Get tag name
  #       id: get_tag_name
