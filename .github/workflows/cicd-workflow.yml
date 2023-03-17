@@ -22,22 +22,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: mukunku/tag-exists-action@v1.2.0
-        id: checkTag
-        with: 
-          tag: ${{ github.event.inputs.version }}
-
-      - run: |
-          if [[ ${{ steps.checkTag.outputs.exists }} == false ]]; then
-            echo ${{ github.event.inputs.version }} is not valid tag
-            exit 1
-          fi
-          
-      - name: git fetch tags
-        run: |
-          echo "::set-output version = ${{ github.event.inputs.version }}"
-          git checkout tags/${{ github.event.inputs.version }}
-          
+#      - uses: mukunku/tag-exists-action@v1.2.0
+ #       id: checkTag
+  #      with: 
+   #       tag: ${{ github.event.inputs.version }}
+#
+ #     - run: |
+  #        if [[ ${{ steps.checkTag.outputs.exists }} == false ]]; then
+   #         echo ${{ github.event.inputs.version }} is not valid tag
+    #        exit 1
+     #     fi
+      #    
+#      - name: git fetch tags
+ #       run: |
+  #        echo "::set-output version = ${{ github.event.inputs.version }}"
+   #       git checkout tags/${{ github.event.inputs.version }}
+    #      
       - name: running shell script
         run: ./scripts/shell-script.sh
         shell: bash
