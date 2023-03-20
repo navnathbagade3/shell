@@ -19,9 +19,9 @@ permissions:
   contents: write
   deployments: write
 #  metadata: read
-  packages: write
+#  packages: write
 #  pages: write
-  repository-projects: write
+#  repository-projects: write
 #  security-events: write
 #  statuses: write
 
