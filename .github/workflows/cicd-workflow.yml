@@ -16,7 +16,7 @@ permissions:
 #  pull-requests: write
   actions: write
   checks: write
-#  contents: write
+  contents: write
 #  deployments: write
 #  metadata: read
 #  packages: write
