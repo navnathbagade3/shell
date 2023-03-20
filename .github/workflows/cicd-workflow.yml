@@ -13,11 +13,11 @@ on:
 permissions:
   id-token: write
   issues: write
-  pull-requests: write
+#  pull-requests: write
   actions: write
   checks: write
   contents: write
-  deployments: write
+#  deployments: write
 #  metadata: read
 #  packages: write
 #  pages: write
