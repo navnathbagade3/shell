@@ -39,6 +39,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Exit if not on main branch
+        if: endsWith(github.ref, 'master') == false
+        run: |
+          echo "This workflow will run only for main branch"
+          exit 1
+
+
 #      - uses: mukunku/tag-exists-action@v1.2.0
  #       id: checkTag
   #      with: 
