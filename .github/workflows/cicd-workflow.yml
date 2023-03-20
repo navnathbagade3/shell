@@ -20,10 +20,10 @@ permissions:
   deployments: write
 #  metadata: read
   packages: write
-  pages: write
+#  pages: write
   repository-projects: write
-  security-events: write
-  statuses: write
+#  security-events: write
+#  statuses: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
