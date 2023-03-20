@@ -51,6 +51,5 @@ jobs:
       - name: release artifact
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-#          repo_token: "${{ secrets.GETHUB_PERSONAL_ACCESS_TOKEN }}"
           prerelease: false
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
