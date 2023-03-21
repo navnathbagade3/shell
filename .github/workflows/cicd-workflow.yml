@@ -40,7 +40,7 @@ jobs:
           fetch-depth: 0
 
       - name: Exit if not on main branch
-        if: endsWith(github.ref, 'master') == false
+        if: endsWith(github.ref, 'master') == true
         run: |
           echo "This workflow will run only for main branch"
           exit 1
