@@ -67,9 +67,9 @@ jobs:
         shell: bash
 
       - name: zipping dir
-        uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r ./shell/project.zip ./shell/scripts
+        run: |
+          pwd
+          zip --qq -r ./shell/project.zip ./shell/scripts
       
       - name: release artifact
         uses: "marvinpinto/action-automatic-releases@v1.2.1"
