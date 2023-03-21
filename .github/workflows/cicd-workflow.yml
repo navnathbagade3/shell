@@ -69,7 +69,7 @@ jobs:
       - name: zipping dir
         run: |
           pwd
-          zip --qq -r ./shell/project.zip ./shell/scripts
+          zip -r ./shell/project.zip ./shell/scripts
       
       - name: release artifact
         uses: "marvinpinto/action-automatic-releases@v1.2.1"
