@@ -69,11 +69,11 @@ jobs:
       - name: zipping dir
         run: |
           pwd
-          zip -r ../shell/project.zip ../shell/scripts
+          zip -r /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions/project.zip /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions
       
       - name: release artifact
         uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
           prerelease: false
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          files: ../shell/project.zip
+          files: /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions/project.zip
