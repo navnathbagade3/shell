@@ -73,8 +73,7 @@ jobs:
           ls -l /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions/project.zip
 
       - name: release artifact
-        uses: "marvinpinto/action-automatic-releases@v1.2.1"
+        uses: elgohr/Github-Release-Action@v4
         with:
-          prerelease: false
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           files: /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions/project.zip
