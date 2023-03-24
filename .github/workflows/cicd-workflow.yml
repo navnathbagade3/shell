@@ -70,7 +70,8 @@ jobs:
         run: |
           pwd
           zip -r /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions/project.zip /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions
-      
+          ls -l /home/runner/work/shell/shell/work/mgm_tdd_ee_lms_events/mgm_tdd_ee_lms_events/target/azure-functions/project.zip
+
       - name: release artifact
         uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
